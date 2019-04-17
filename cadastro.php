@@ -3,19 +3,30 @@
     include "inc/head.php";
 
     if($_REQUEST){
-        $nome = $_REQUEST["nome"]; // REQUEST funciona com GE e POST
+        $nome = $_REQUEST["nome"]; // REQUEST funciona com GET e POST
         $email = $_REQUEST["email"];
         $senha = $_REQUEST["senha"];
         $confirmarSenha = $_REQUEST["confirmarSenha"];
-
+        
+        //testes
+        // $cadastro = md5($senha);
+        // $login = md5($senha);
+        // echo $cadstro . "<br>";
+        // echo $login;
+        // // exit;
+        // $hash = password_hash($senha, PASSWORD_DEFAULT);
+        // echo $hash;
+        // exit;
             // verifica se a senha é igual a confirmar senha
             if ($senha == $confirmarSenha) {
+                // criptografando a senha
+                $senhaCript = password_hash($senha, PASSWORD_DEFAULT);
                 
                 // criando um novo usuario
                 $novoUsuario = [
                     "nome" => $nome,
                     "email" => $email,
-                    "senha" => $senha,
+                    "senha" => $senhaCript,
                 ];
 
                 // cadastra meu usuario no json
