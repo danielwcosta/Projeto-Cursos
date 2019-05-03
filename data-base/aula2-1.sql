@@ -50,6 +50,9 @@ SELECT * FROM usuarios
 WHERE nome LIKE 'h%' AND tipo_usuario_fk = 2;
 
 SELECT * FROM usuarios
+WHERE nome LIKE '%y';
+
+SELECT * FROM usuarios
 WHERE nome LIKE 'h%' OR tipo_usuario_fk = 1;
 
 SELECT * FROM usuarios

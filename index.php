@@ -4,16 +4,15 @@ include "inc/header.php";
 include "req/database.php";
 
 try {
-    $conexao = new PDO($dsn,$db_user, $db_pass); //Abre conexão
-
-
+    // $conexao = new PDO($dsn,$db_user, $db_pass); //Abre conexão
     $query = $conexao->query('SELECT * FROM cursos');// consulta banco de dados
 
     $cursos = $query->fetchAll(PDO::FETCH_ASSOC);//traz todas as linhas em array associativo
-    var_dump($cursos);
+    // var_dump($cursos);
 
+    $conexao = null;
 }catch( PDOException $Exception){
-    echo $Exception->getMessage();
+    echo $Exception->getMessage(); //mostra onde acontece o erro
 }
     // $nomeCurso1 = "Full Stack";
     // $descricaoCurso1 = "Curso de desenvolvimento web";
@@ -70,8 +69,8 @@ try {
                             <h4> Curso de: <?php echo $infosCurso['nome']; ?></h4>   
                             <h4>Preço: R$ <?php echo $infosCurso['preco']; ?></h4>
                             <form action="validarCompra.php" method="post">
-                                <input id="nomeCurso" name="nomeCurso" type="hidden" value="<?php echo $nomeCurso; ?>">    
-                                <input id="nomeCurso" name="precoCurso" type="hidden" value="<?php echo $infosCurso[1]; ?>">    
+                                <input id="nomeCurso" name="nomeCurso" type="hidden" value="<?php echo $infosCurso['nome']; ?>">    
+                                <input id="nomeCurso" name="precoCurso" type="hidden" value="<?php echo $infosCurso['preco']; ?>">    
                                
                                 <div class="input-group col-md-5">
                                     <label for="nomeCompleto">Nome Completo</label>
