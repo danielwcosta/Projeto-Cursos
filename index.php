@@ -41,7 +41,7 @@ try {
                 <div class="col-sm-6 col-md-6">
                     <div class="thumbnail">
                         <!-- imagem curso -->
-                        <img src="assets/img/<?php echo $infosCurso['image']; ?>" alt="Foto curso <?php echo  $infosCurso['nome']; ?>">
+                        <img src="<?php echo $infosCurso['image']; ?>" alt="Foto curso <?php echo  $infosCurso['nome']; ?>">
                                 <div class="caption">
                             <h3><?php echo $infosCurso['nome']; ?></h3>
                             <!-- descriçao cruso -->
